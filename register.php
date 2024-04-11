@@ -8,14 +8,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
+        .login-block{
+            display: block;
+        }
         .login-container {
             display: flex;
-            justify-content:flex-start;
-            }
+            justify-content:left;
+        }
         button{
             width: 158px;
             margin-bottom: 6px;
             margin-top: 6px;
+        }
+        span{
+            width:170px;
         }
         input{
             width: 150px;
@@ -128,23 +134,26 @@
 </head>
 <body>
     <h1>Регистрация нового пользователя</h1>
-    <div class="login-container">
-        <span>Логин:</span>
-        <input type="text" id="login" autocomplete="FALSE">
-    </div>
+    <div class="login-block">
+        <div class="login-container">
+            <span>Логин:</span>
+            <input type="text" id="login" autocomplete="FALSE">
+        </div>
 
-    <div class="login-container">
-        <span>Пароль:</span>
-        <input type="password" id="password" autocomplete="FALSE">
-    </div>
-    <div class="login-container">
-        <span>Подтверждение пароля:</span>
-        <input type="password" id="password_control" autocomplete="FALSE">
-    </div>
-    <div class="login-container">
-        <span>Email:</span>
-        <input type="text" id="email" autocomplete="FALSE">
-    </div>
+        <div class="login-container">
+            <span>Пароль:</span>
+            <input type="password" id="password" autocomplete="FALSE">
+        </div>
+        <div class="login-container">
+            <span>Подтверждение пароля:</span>
+            <input type="password" id="password_control" autocomplete="FALSE">
+        </div>
+        <div class="login-container">
+            <span>Email:</span>
+            <input type="text" id="email" autocomplete="FALSE">
+        </div>
+    </div></br>
+
     <button id="reg" onclick="reg()">Registration</button>
     <p id="an"> </p>
     <a href="home1.php">На домашнюю страницу</a><br/>
