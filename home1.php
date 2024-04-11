@@ -17,6 +17,7 @@
     <a href="billing.php">Счет за ваше удовольствие</a><br/>
     <a href="login.php">Вход для VIP пользователей</a><br/>
     <a href="logout.php">Выход для VIP пользователей</a><br/>
+    <a href="register.php">Регистрация нового пользователя</a><br/>
 
 </body>
 </html>

@@ -48,7 +48,7 @@
                     //password_check=pwd_check();
                     //Проверяем логин
                     var xhr=new XMLHttpRequest();
-                    var url = "api/reg.php?type="+1+"user_login="+user_login+"&csrf_token="+csrf_token;
+                    var url = "api/reg.php?type="+'1'+"&user_login="+user_login+"&csrf_token="+csrf_token;
                     xhr.open("GET",url);
                     xhr.onload=function(){
                         console.log(xhr.responseText);
@@ -66,18 +66,23 @@
                                     alert("Слабый пароль, необходимо использовать латинские заглавные буквы и прописные буквы, цифры и спецсимволы");
                                 }
                                 else{
-                                    //alert("Отличный пароль");
-                                    var xhr2=new XMLHttpRequest();
-                                    var url2 = "api/reg.php?type="+2+"user_login="+user_login+"user_pass="+pwd+"email="+email+"&csrf_token="+csrf_token;
-                                    xhr2.open("GET",url);
-                                    xhr2.onload=function(){
-                                        console.log(xhr2.responseText);
-                                        result2=xhr2.responseText;
-                                        alert(result2);
+                                    var pwd_control=document.getElementById("password_control").value;
+                                    if (pwd==pwd_control){
+                                        //alert("Отличный пароль");
+                                        var xhr2=new XMLHttpRequest();
+                                        var url2 = "api/reg.php?type="+'2'+"&user_login="+user_login+"&user_pass="+pwd+"&email="+email+"&csrf_token="+csrf_token;
+                                        xhr2.open("POST",url2);
+                                        xhr2.onload=function(){
+                                            console.log(xhr2.responseText);
+                                            result2=xhr2.responseText;
+                                            alert(result2);
+                                        }
+                                        xhr2.send();
                                     }
-                                    xhr2.send();
+                                    else{
+                                        alert("пароли не совпадают");
+                                    }                                
                                 }
-
                             }
                         }
                         else{
@@ -86,6 +91,7 @@
                         //document.getElementById("an").innerText=result;
                     }
                     xhr.send();
+                    
                 }
             }
         }
@@ -132,10 +138,15 @@
         <input type="password" id="password" autocomplete="FALSE">
     </div>
     <div class="login-container">
+        <span>Подтверждение пароля:</span>
+        <input type="password" id="password_control" autocomplete="FALSE">
+    </div>
+    <div class="login-container">
         <span>Email:</span>
         <input type="text" id="email" autocomplete="FALSE">
     </div>
     <button id="reg" onclick="reg()">Registration</button>
     <p id="an"> </p>
+    <a href="home1.php">На домашнюю страницу</a><br/>
 </body>
 </html>

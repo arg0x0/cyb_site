@@ -7,7 +7,7 @@
         die("возможная попытка CSRF");
     }
     $type=$_REQUEST["type"];
-    if ($type==1){
+    if ($type=="1"){
         $user_login=$_REQUEST["user_login"];
         $sql="SELECT Login FROM Logins
             WHERE Login=?
@@ -33,11 +33,11 @@
     }
     else{
         $user_login=$_REQUEST["user_login"];
-        $user_password=openssl_encrypt($_REQUEST["user_pass"],"AES-128-CBC",'Pa$$w0rd');
+        $user_password=hash('sha256',$_REQUEST["user_pass"]);
         $user_email=$_REQUEST["email"];
-        echo($user_login);
-        echo($user_password);
-        echo($user_email);
+        //echo($user_login);
+        //echo($user_password);
+        //echo($user_email);
         $sql="INSERT INTO Logins 
             (Login, PwdHash, Email) 
             VALUES (?, ?, ?)
@@ -51,8 +51,14 @@
         mysqli_stmt_execute($stmt);
         // Извлекаем результат
         $result=mysqli_stmt_get_result($stmt);
-        $data=mysqli_fetch_assoc($result);
-        echo($data);
+        if (is_null($result)){
+            echo("ошибка записи");
+        }
+        else{
+            echo("запись выполнена");
+        }
+        //$data=mysqli_fetch_assoc($result);
+        //echo($data);
         mysqli_close($conn);
     }
 ?>
